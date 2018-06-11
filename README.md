@@ -1,16 +1,6 @@
 # CoWFC
 Front- and back-end website for the DWC network server emulator
 
-# Prerequisites
-- mh9924/dwc\_network\_server\_emulator
-- Webserver (nginx or httpd)
-- PHP ≥ 7.0 - PHP 7.1 recommended
-  - php7.1-mysql
-  - sqlite php-sqlite3
-- MySQL
-- HTML5 templates (auto-installed by kyle95wm's setup script)
-  - Landed
-  - SBAdmin
 # How to Build
 First, you will need to be running on Ubuntu. Otherwise the [setup script](https://github.com/kyle95wm/cowfc_installer) will not run. Please run the following command below to get started:
 
