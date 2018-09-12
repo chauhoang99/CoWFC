@@ -1,6 +1,10 @@
 # CoWFC
 Front- and back-end website for the DWC network server emulator
 
+# CONTRIBUTING
+
+Please open pull requests for the dev branch.
+
 # How to Build
 First, you will need to be running on Ubuntu. Otherwise the [setup script](https://github.com/kyle95wm/cowfc_installer) will not run. Please run the following command below to get started:
 
