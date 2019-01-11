@@ -1,4 +1,7 @@
 # CoWFC
+
+**This repo should be considered as legacy fairly soon. A developer is looking to give a complete overhaul to the CoWFC project.**
+
 Front- and back-end website for the DWC network server emulator
 
 # CONTRIBUTING
