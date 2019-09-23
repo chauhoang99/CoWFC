@@ -6,7 +6,7 @@ class Login {
 	private $errors = array();
 	private $panel;
 	private static $secret;
-	
+
 	public function __construct(AdminPage $panel){
 		$this->panel = $panel;
 		self::$secret = $this->panel->site->config["admin"]["recaptcha_secret"];
@@ -21,13 +21,13 @@ class Login {
 			header("Location: /?page=admin&section=dashboard");
 		}
 	}
-	
+
 	private function buildErrors(): void {
 		foreach($this->errors as $error){
 			echo "{$error}<br>";
 		}
 	}
-	
+
 	private function doLogin(): void {
 		$robot = false;
 		if ($this->panel->site->config["admin"]["recaptcha_enabled"] && !$this->verifyCaptcha()) {
@@ -53,7 +53,7 @@ class Login {
 			$_SESSION['password'] = $this->password;
 		}
 	}
-	
+
 	private function verifyUsername(): bool {
 		$stmt = $this->panel->udatabase->prepare("SELECT * FROM users WHERE Username = :Username");
 		$stmt->bindParam(':Username', $this->username);
@@ -62,16 +62,16 @@ class Login {
 		if (!$result) return false;
 		return true;
 	}
-	
+
 	private function verifyPassword(): bool {
 		$stmt = $this->panel->udatabase->prepare("SELECT * from users WHERE Username = :Username");
 		$stmt->bindParam(':Username', $this->username);
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		
+
 		return password_verify($this->password, $result['Password']);
 	}
-	
+
 	private function verifyCaptcha(): bool {
 		require_once("recaptchalib.php");
 		$response = null;
@@ -84,12 +84,14 @@ class Login {
 		}
 		return $response != null && $response->success;
 	}
-	
+
 	private function buildLogin(){
 ?>
 <html>
 <head>
 <title>Login</title>
+<!-- Disable the line below to disable the reference to google
+Is a good thing if you don't use the recaptcha feature of CoWFC -->
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <style>
@@ -123,7 +125,7 @@ if ($this->panel->site->config["admin"]["recaptcha_enabled"]){
 <button type="submit" class="pure-button pure-button-primary">Login</button>
 </body>
 </html>
-<?php 
+<?php
 	}
 }
 ?>
