@@ -1,7 +1,7 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . '/_drivers/DWCDatabase.php');
 
-$s = new PageController("config.ini");
+$s = new PageController("../config.ini");
 $s->loadPage();
 
 class PageController {
