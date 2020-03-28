@@ -1,7 +1,7 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . '/_site/AdminPage.php');
 
-final class ConsolesWaiting extends AdminPage {
+final class WaitingConsoles extends AdminPage {
 
 	private $pend_consoles = array();
 

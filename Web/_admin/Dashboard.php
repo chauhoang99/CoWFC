@@ -27,7 +27,7 @@ final class Dashboard extends AdminPage {
 				<br><br>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item active">
-						&copy; 2019 CoWFC<br>
+						&copy; 2020 CoWFC<br>
 						'Nintendo' and the Nintendo logo are registered trademarks of Nintendo Co., Ltd.</li>
 					</li>
 				</ol>

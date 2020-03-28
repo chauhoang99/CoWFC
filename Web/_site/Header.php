@@ -40,7 +40,23 @@ class Header {
 			$page = substr($page, 0, -4);
 			echo "<li class='nav-item".($page == $this->page->meta_title ? ' active' : '')."' data-toggle='tooltip' data-placement='right' title='{$page}'>";
 			echo "<a class='nav-link' href='?page=admin&section=".strtolower($page)."'>";
-			echo "<i class='fa fa-fw fa-".($page == 'Dashboard' ? 'dashboard' : 'wrench')."'></i>";
+			if(strtolower($page) == "bans"){
+				echo "<i class='fa fa-fw fa-".('ban')."'></i>";
+			}else if (strtolower($page) == "dashboard"){
+				echo "<i class='fa fa-fw fa-".('dashboard')."'></i>";
+			}else if (strtolower($page) == "waiting consoles"){
+				echo "<i class='fa fa-fw fa-".('hourglass-2')."'></i>";
+			}else if (strtolower($page) == "game whitelist"){
+				echo "<i class='fa fa-fw fa-".('certificate')."'></i>";
+			}else if (strtolower($page) == "registered consoles"){
+				echo "<i class='fa fa-fw fa-".('check')."'></i>";
+			}else if (strtolower($page) == "settings"){
+				echo "<i class='fa fa-fw fa-".('cogs')."'></i>";
+			}else if (strtolower($page) == "user list"){
+				echo "<i class='fa fa-fw fa-".('group')."'></i>";
+			}else{
+				echo "<i class='fa fa-fw fa-".('info')."'></i>";
+			}
 			echo "<span class='nav-link-text'> {$page}</span>";
 			echo "</a>";
 			echo "</li>";

@@ -17,7 +17,7 @@ class Footer {
 						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; 2019 CoWFC.<br>'Nintendo' and the Nintendo logo are registered trademarks of Nintendo Co., Ltd.</li>
+						<li>&copy; 2020 CoWFC.<br>'Nintendo' and the Nintendo logo are registered trademarks of Nintendo Co., Ltd.</li>
 					</ul>
 				</footer>
 

@@ -9,7 +9,7 @@ Please open pull requests for the dev branch.
 # How to Build
 Note : This version of CoWFC is not compatible with the original dwc_network_server_emulator !
 
-First, you will need to be running on Ubuntu. Otherwise the [setup script](https://github.com/EnergyCube/cowfc_installer) will not run. Please run the following command below to get started:
+First, you will need to be running on Ubuntu 14.04 or 16.04. Otherwise the [setup script](https://github.com/EnergyCube/cowfc_installer) will not run. Please run the following command below to get started:
 
 `mkdir /var/www ; cd /var/www && wget https://raw.githubusercontent.com/EnergyCube/cowfc_installer/master/cowfc.sh && chmod +x cowfc.sh && ./cowfc.sh`
 
@@ -48,4 +48,6 @@ Follow the rest of the on-screen instructions and let your server build.
   - Only accessible by highest ranked moderators
   - Modification of users of the same rank must be done through shell
 - Add more settings
+- Support more Systems or Ubuntu versions
+- Maybe remake all the project in C++ lol
 - More ideas I'm sure we haven't thought of yet :p
