@@ -8,25 +8,19 @@ Please open pull requests for the dev branch.
 
 📝 How to use
 -
-First, you will need to be running on Ubuntu 14.04 or 16.04 (Higher versions and Debian are experimental). Otherwise the [setup script](https://github.com/EnergyCube/cowfc_installer) will not run.
+First, you will need to be running on Ubuntu 14.04 or 16.04 or Debian 10. Otherwise the [setup script](https://github.com/EnergyCube/cowfc_installer) will not run.
 
 Please run the following command below to get started:
-
 ![image](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ubuntu_logo.svg/100px-Ubuntu_logo.svg.png)
 
 `mkdir /var/www ; cd /var/www && wget https://raw.githubusercontent.com/EnergyCube/cowfc_installer/master/cowfc.sh && chmod +x cowfc.sh && ./cowfc.sh`
 
-If you're on AWS, you can run this instead:
-`mkdir /var/www ; cd /var/www && wget https://raw.githubusercontent.com/EnergyCube/cowfc_installer/master/cowfc.sh && chmod +x cowfc.sh && && touch /var/www/.aws_install && ./cowfc.sh`
-
-Your server will reboot after adding the PHP repo. After the server has rebooted, please issue the following commands:
-`cd /var/www/ && ./cowfc.sh`
-
-Follow the rest of the on-screen instructions and let your server build.
+After system reboot : `cd /var/www && ./cowfc.sh`
 
 ![image](https://www.debian.org/logos/openlogo-nd-25.png) Debian
 ----
-⚠️ (Not recommended) If you want to install the Debian experimental version, replace all cowfc.sh with cowfc-debian.sh
+
+`wget https://raw.githubusercontent.com/EnergyCube/cowfc_installer/master/cowfc-debian.sh && chmod +x cowfc-debian.sh && ./cowfc-debian.sh`
 
 ## Features
 - Stats page shows who is online by game/country
@@ -39,6 +33,17 @@ Create a new issue and communicate all informations that you can.
 
 📖 Notes
 -------
+
+This script comes in 3 phases for Ubuntu. Each phase involves a reboot
+-	Add the PHP 7.1 repo
+-	Continue CoWFC install
+-	Reboot after CoWFC install
+
+This script comes in 1 phases for Debian.
+-	Install CoWFC & Reboot
+
+Ubuntu script use PHP 7.1 & MySQL<br/>
+Debian script use PHP 7.4 & MariaDB<br/>
 This version of CoWFC is not compatible with the original dwc_network_server_emulator ! We are using my [own fork](https://github.com/EnergyCube/dwc_network_server_emulator) !
 
 # Screenshots
