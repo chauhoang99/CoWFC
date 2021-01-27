@@ -8,7 +8,8 @@ Please open pull requests for the dev branch.
 
 📝 How to use
 -
-First, you will need to be running on Ubuntu 14.04 or 16.04 or Debian 10. Otherwise the [setup script](https://github.com/EnergyCube/cowfc_installer) will not run.
+First, you will need to be running on Ubuntu 14.04 or 16.04 or Debian 10. Otherwise the [setup script](https://github.com/EnergyCube/cowfc_installer) will not run.\
+❌ Debian 10 : LAN Reported not working ! Only tested on a VPS using a domain name)
 
 Please run the following command below to get started:
 ![image](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ubuntu_logo.svg/100px-Ubuntu_logo.svg.png)
