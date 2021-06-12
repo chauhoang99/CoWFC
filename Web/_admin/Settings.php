@@ -8,7 +8,7 @@ final class Settings extends AdminPage {
 		"disable" => "setSetting"
 	);
 
-	private function handleReq(): void {
+	private function handleReq() {
 		if(isset($_POST["action"], $_POST["identifier"])){
 			switch($_POST["action"]){
 				case "enable":
@@ -28,7 +28,7 @@ final class Settings extends AdminPage {
 		$this->settings = $this->site->database->getSettings();
 	}
 
-	private function buildSettingsTable(): void {
+	private function buildSettingsTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;" id="dataTable">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>Setting Name</th><th>Description</th><th>Actual Value</th><th>Action</th";
@@ -59,7 +59,7 @@ final class Settings extends AdminPage {
 		echo "</table>";
 	}
 
-	protected function buildAdminPage(): void {
+	protected function buildAdminPage() {
 		$this->handleReq();
 		?>
 		<div class="content-wrapper py-3">

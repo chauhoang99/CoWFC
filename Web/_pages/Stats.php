@@ -16,7 +16,7 @@ final class Stats extends Page {
 		parent::__construct($site);
 	}
 	
-	private function initStats(): void {
+	private function initStats() {
 		if(isset($_GET['sort']) && in_array($_GET['sort'], $this->sorts))
 			$this->sort = $_GET['sort'];
 		$json = @file_get_contents("http://localhost:9001/json");
@@ -27,11 +27,11 @@ final class Stats extends Page {
 		$this->games = json_decode($json, true);
 	}
 	
-	private function initTitles(): void {
+	private function initTitles() {
 		$this->titles = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/_pages/Stats/games.json"), true);
 	}
 	
-	private function initCountries(): void {
+	private function initCountries() {
 		foreach ($this->games as $game){
 			foreach($game as $gameconn){
 				$country = $this->getCountryFromIP(long2ip($gameconn['publicip']));
@@ -43,7 +43,7 @@ final class Stats extends Page {
 		}
 	}
 	
-	private function buildGameTable(): void {
+	private function buildGameTable() {
 		$this->initTitles();
 		echo "<table>";
 		echo "<tr>";
@@ -63,7 +63,7 @@ final class Stats extends Page {
 		echo "</table>";
 	}
 	
-	private function buildCountryTable(): void {
+	private function buildCountryTable() {
 		$this->initCountries();
 		echo "<table>";
 		echo "<tr>";
@@ -81,11 +81,11 @@ final class Stats extends Page {
 		echo "</table>";
 	}
 	
-	private function buildStatsTable(): void {
+	private function buildStatsTable() {
 		$this->{"build{$this->sort}Table"}();
 	}
 	
-	private function buildDropDown(): void {
+	private function buildDropDown() {
 		echo "<select onChange='window.location.href=this.value' style='width: 120px;'>";
 		foreach ($this->sorts as $sort){
 			echo "<option value='?page=stats&sort={$sort}'" . ($sort == $this->sort ? "selected" : "") .">{$sort}</option>";
@@ -98,7 +98,7 @@ final class Stats extends Page {
 		return $info["country"];
 	}
 	
-	protected function buildPage(): void {
+	protected function buildPage() {
 ?>
 <div id="main" class="wrapper style1">
 	<div class="container">

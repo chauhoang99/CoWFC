@@ -22,13 +22,13 @@ class Login {
 		}
 	}
 
-	private function buildErrors(): void {
+	private function buildErrors() {
 		foreach($this->errors as $error){
 			echo "{$error}<br>";
 		}
 	}
 
-	private function doLogin(): void {
+	private function doLogin() {
 		$robot = false;
 		if ($this->panel->site->config["admin"]["recaptcha_enabled"] && !$this->verifyCaptcha()) {
 			$this->errors[] = "Invalid captcha.";

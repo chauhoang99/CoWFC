@@ -5,7 +5,7 @@ class Footer {
 	public function __construct(Page $page) {
 		$this->page = $page;
 	}
-	public function build(): void {
+	public function build() {
 ?>
 				<footer id="footer">
 					<ul class="icons">

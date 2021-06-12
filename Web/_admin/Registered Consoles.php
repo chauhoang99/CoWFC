@@ -8,7 +8,7 @@ final class RegisteredConsoles extends AdminPage {
 		"ban" => "ban"
 	);
 
-	private function handleReq(): void {
+	private function handleReq() {
 		if(isset($_POST["action"], $_POST["identifier"])){
 			switch($_POST["action"]){
 				case "ban":
@@ -24,7 +24,7 @@ final class RegisteredConsoles extends AdminPage {
 		$this->reg_consoles = $this->site->database->getRegisteredConsoles();
 	}
 
-	private function buildRegisteredTable(): void {
+	private function buildRegisteredTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;" id="dataTable">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>MAC Address</th><th>Platform</th><th>Serial Number (Wii)</th><th>Unregister</th><th>Ban</th>";
@@ -55,7 +55,7 @@ final class RegisteredConsoles extends AdminPage {
 
 
 
-	protected function buildAdminPage(): void {
+	protected function buildAdminPage() {
 		$this->handleReq();
 		?>
 		<div class="content-wrapper py-3">

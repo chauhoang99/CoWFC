@@ -3,12 +3,12 @@ include($_SERVER["DOCUMENT_ROOT"] . '/_site/Page.php');
 
 final class Home extends Page {
 	
-	protected function buildHeader(): void {
+	protected function buildHeader() {
 		$this->meta_title = "The Nintendo WFC alternative!";
 		$this->header->build();
 	}
 	
-	protected function buildPage(): void {
+	protected function buildPage() {
 ?>
 <section id="banner" style="">
 	<div class="content">

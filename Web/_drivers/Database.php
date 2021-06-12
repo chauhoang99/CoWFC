@@ -33,7 +33,7 @@ class Database {
 		return $this->conn;
 	}
 		
-	public function disconnect(): void {
+	public function disconnect() {
 		if ($this->conn != null){
 			$this->conn = null;
 		}

@@ -13,7 +13,7 @@ class Header {
 		return $this->generatePagesNav();
 	}
 	
-	public function generatePagesNav(): void {
+	public function generatePagesNav() {
 		echo "<nav id='nav'>";
 		echo "<ul>";
 		foreach($this->page->site->pages as $page){
@@ -26,7 +26,7 @@ class Header {
 		echo "</nav>";
 	}
 	
-	public function generateAdminNav(): void {
+	public function generateAdminNav() {
 		?>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
 		<a class="navbar-brand" href="#"><img src="images/cowfc-panel.png" width="96" height="32"></a>
@@ -71,7 +71,7 @@ class Header {
 		<?php
 	}
 			
-	public function build(): void {
+	public function build() {
 ?>
 <html>
 	<head>

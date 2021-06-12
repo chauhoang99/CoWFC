@@ -3,7 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . '/_site/Page.php');
 
 final class BanLogs extends Page {
 	
-	private function buildLogs(): void {
+	private function buildLogs() {
 		$lines = file($this->site->config['admin']['banlog_path']);
 		$logs = array_reverse(array_slice($lines, -20));
 		echo "<table>";
@@ -12,7 +12,7 @@ final class BanLogs extends Page {
 		echo "</table>";
 	}
 	
-	protected function buildPage(): void {
+	protected function buildPage() {
 ?>
 <div id="main" class="wrapper style1">
 	<div class="container">

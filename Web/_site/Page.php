@@ -22,13 +22,13 @@ abstract class Page {
 		$this->buildFooter();
 	}
 		
-	protected function buildHeader(): void {
+	protected function buildHeader() {
 		if ($this->site->config["main"]["debug"])
 			echo "CoWFC is running in debug mode. Errors will be visible.";
 		$this->header->build();
 	}
 	
-	protected function buildFooter(): void {
+	protected function buildFooter() {
 		$this->footer->build();
 	}
 }

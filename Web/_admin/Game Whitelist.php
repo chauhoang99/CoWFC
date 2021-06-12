@@ -8,14 +8,14 @@ final class GameWhitelist extends AdminPage {
 		"rm" => "removeFromWhitelist"
 	);
 
-	private function handleReq(): void {
+	private function handleReq() {
 		if(isset($_POST["action"], $_POST["identifier"]))
 			if(array_key_exists($_POST["action"], $this->identifierActions))
 				$this->site->database->{$this->identifierActions[$_POST["action"]]}($_POST["identifier"]);
 		$this->whitelist = $this->site->database->getWhitelist();
 	}
 
-	private function buildWhitelistTable(): void {
+	private function buildWhitelistTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>gamecd</th><th>Un-whitelist</th>";
@@ -33,7 +33,7 @@ final class GameWhitelist extends AdminPage {
 		echo "</table>";
 	}
 
-	protected function buildAdminPage(): void {
+	protected function buildAdminPage() {
 		$this->handleReq();
 		?>
 		<div class="content-wrapper py-3">
