@@ -41,3 +41,8 @@ CREATE TABLE `users` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-09-02  5:27:42
+
+CREATE TABLE `allowed_games` (
+  `gamecd` varchar(24) DEFAULT NULL
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
