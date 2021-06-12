@@ -43,6 +43,6 @@ CREATE TABLE `users` (
 -- Dump completed on 2017-09-02  5:27:42
 
 CREATE TABLE `allowed_games` (
-  `gamecd` varchar(24) DEFAULT NULL
+  `gamecd` varchar(24) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
