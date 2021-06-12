@@ -32,6 +32,7 @@ final class Rules extends Page {
 	</div>
 </div>
 <?php
+return;
 	}
 }
 ?>

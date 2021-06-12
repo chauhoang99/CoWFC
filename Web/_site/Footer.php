@@ -36,6 +36,7 @@ class Footer {
 	</body>
 </html>
 <?php
+return;
 	}
 }
 ?>

@@ -24,6 +24,7 @@ final class WaitingConsoles extends AdminPage {
 			}
 		}
 		$this->pend_consoles = $this->site->database->getPendingConsoles();
+		return;
 	}
 
 	private function buildPendRegisteredTable(): void {
@@ -45,6 +46,7 @@ final class WaitingConsoles extends AdminPage {
 			echo "</tr>";
 		}
 		echo "</table>";
+		return;
 	}
 
 
@@ -59,6 +61,7 @@ final class WaitingConsoles extends AdminPage {
 		}else{
 			echo "Database problem ! Value console_manualactivation in settings not found (or not 0 or 1)! Check that the version of CoWFC is the same as that of the dwc server in Settings or Dashboard.";
 		}
+		return;
 	}
 
 	protected function buildAdminPage(): void {
@@ -86,6 +89,7 @@ final class WaitingConsoles extends AdminPage {
 			</div>
 		</div>
 		<?php
+		return;
 	}
 }
 ?>

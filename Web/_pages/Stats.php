@@ -25,10 +25,12 @@ final class Stats extends Page {
 			return;
 		}
 		$this->games = json_decode($json, true);
+		return;
 	}
 	
 	private function initTitles(): void {
 		$this->titles = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/_pages/Stats/games.json"), true);
+		return;
 	}
 	
 	private function initCountries(): void {
@@ -41,6 +43,7 @@ final class Stats extends Page {
 				$this->countries[$country]++;
 			}
 		}
+		return;
 	}
 	
 	private function buildGameTable(): void {
@@ -61,6 +64,7 @@ final class Stats extends Page {
 			echo "</tr>";
 		}
 		echo "</table>";
+		return;
 	}
 	
 	private function buildCountryTable(): void {
@@ -79,10 +83,12 @@ final class Stats extends Page {
 			echo "</tr>";
 		}
 		echo "</table>";
+		return;
 	}
 	
 	private function buildStatsTable(): void {
 		$this->{"build{$this->sort}Table"}();
+		return;
 	}
 	
 	private function buildDropDown(): void {
@@ -91,6 +97,7 @@ final class Stats extends Page {
 			echo "<option value='?page=stats&sort={$sort}'" . ($sort == $this->sort ? "selected" : "") .">{$sort}</option>";
 		}
 		echo "</select>";
+		return;
 	}
 	
 	private function getCountryFromIP(string $ip): string {
@@ -128,6 +135,7 @@ final class Stats extends Page {
 	</div>
 </div>
 <?php
+return;
 	}
 }
 ?>

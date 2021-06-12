@@ -26,6 +26,7 @@ final class Settings extends AdminPage {
 		}
 
 		$this->settings = $this->site->database->getSettings();
+		return;
 	}
 
 	private function buildSettingsTable(): void {
@@ -57,6 +58,7 @@ final class Settings extends AdminPage {
 
 		}
 		echo "</table>";
+		return;
 	}
 
 	protected function buildAdminPage(): void {
@@ -83,6 +85,7 @@ final class Settings extends AdminPage {
 			</div>
 		</div>
 		<?php
+		return;
 	}
 }
 ?>

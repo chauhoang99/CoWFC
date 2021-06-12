@@ -44,11 +44,13 @@ class PageController {
 		} catch (Exception $e){
 			echo "Could not find configuration file. $e";
 		}
+		return;
 	}
 	
 	private function loadDatabase(): void {
 		$this->database = new DWCDatabase($this);
 		$this->database->connect("sqlite:".$this->config['pages']['dwc_db_path']);
+		return;
 	}
 	
 	public function loadPage(): Page {

@@ -34,6 +34,7 @@ final class Dashboard extends AdminPage {
 			</div>
 		</div>
 		<?php
+		return;
 	}
 }
 ?>

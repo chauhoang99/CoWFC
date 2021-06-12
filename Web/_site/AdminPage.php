@@ -36,10 +36,12 @@ abstract class AdminPage extends Page {
 											Rank INT(1),
 											PRIMARY KEY (id))");
 		$stmt->execute();
+    return;
 	}
 	
 	protected function buildPage(): void {
 		$this->buildAdminPage();
+    return;
 	}
 	
 	protected function buildHeader(): void {
@@ -75,6 +77,7 @@ abstract class AdminPage extends Page {
     <!-- Navigation -->
     <?php $this->header->generateNav(); ?>
 <?php
+return;
 	}
 	
 	protected function buildFooter(): void {
@@ -122,6 +125,7 @@ abstract class AdminPage extends Page {
 
 </html>
 <?php
+return;
 	}
 }
 ?>

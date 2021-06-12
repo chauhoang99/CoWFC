@@ -37,6 +37,7 @@ class Database {
 		if ($this->conn != null){
 			$this->conn = null;
 		}
+		return;
 	}
 }
 ?>

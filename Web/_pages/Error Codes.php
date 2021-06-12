@@ -29,6 +29,7 @@ final class ErrorCodes extends Page {
 	</div>
 </div>
 <?php
+return;
 	}
 }
 ?>

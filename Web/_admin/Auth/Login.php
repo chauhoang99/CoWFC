@@ -26,6 +26,7 @@ class Login {
 		foreach($this->errors as $error){
 			echo "{$error}<br>";
 		}
+		return;
 	}
 
 	private function doLogin(): void {
@@ -52,6 +53,7 @@ class Login {
 			$_SESSION['username'] = $this->username;
 			$_SESSION['password'] = $this->password;
 		}
+		return;
 	}
 
 	private function verifyUsername(): bool {

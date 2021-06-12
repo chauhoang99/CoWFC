@@ -31,6 +31,7 @@ final class Bans extends AdminPage {
 		$this->ip_bans = $this->site->database->getIPBans();
 		$this->banned_consoles = $this->site->database->getBannedConsoles();
 		$this->abused_consoles = $this->site->database->getAbusedConsoles();
+		return;
 	}
 
 	private function buildIPTable(): void {
@@ -61,6 +62,7 @@ final class Bans extends AdminPage {
 			echo "</tr>";
 		}
 		echo "</table>";
+		return;
 	}
 
 	private function buildBannedTable(): void {
@@ -90,6 +92,7 @@ final class Bans extends AdminPage {
 			echo "</tr>";
 		}
 		echo "</table>";
+		return;
 	}
 
 	private function buildAbusedTable(): void {
@@ -105,6 +108,7 @@ final class Bans extends AdminPage {
 			echo "</tr>";
 
 		}
+		return;
 	}
 
 	protected function buildAdminPage(): void {
@@ -153,6 +157,7 @@ final class Bans extends AdminPage {
 			</div>
 		</div>
 		<?php
+		return;
 	}
 }
 ?>

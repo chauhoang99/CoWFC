@@ -41,6 +41,7 @@ class DWCDatabase extends Database {
 		$stmt->bindValue(':setting_value', $setting_value);
 		$stmt->bindValue(':setting_name', $setting_name);
 		$stmt->execute();
+		return;
 	}
 
 	public function addToWhitelist(string $game): void {
@@ -48,6 +49,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindValue(':gamecd', strtoupper($game));
 		$stmt->execute();
+		return;
 	}
 
 	public function removeFromWhitelist(string $game): void {
@@ -55,6 +57,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':gamecd', $game);
 		$stmt->execute();
+		return;
 	}
 
 	private function banIP(string $ip, string $reason='none', int $time=0): void {
@@ -67,6 +70,7 @@ class DWCDatabase extends Database {
 		$stmt->bindParam(':reason', $reason);
 		$stmt->bindParam(':ubtime', $ubtime);
 		$stmt->execute();
+		return;
 	}
 
 	private function banProfile(string $profile, string $reason='none', int $time=0): void {
@@ -79,6 +83,7 @@ class DWCDatabase extends Database {
 		$stmt->bindParam(':reason', $reason);
 		$stmt->bindParam(':ubtime', $ubtime);
 		$stmt->execute();
+		return;
 	}
 
 	public function unbanProfile(string $gsbrcd): void {
@@ -86,6 +91,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':gsbrcd', $gsbrcd);
 		$stmt->execute();
+		return;
 	}
 
 	private function banAP(string $ap, string $reason='none', int $time=0): void {
@@ -98,6 +104,7 @@ class DWCDatabase extends Database {
 		$stmt->bindParam(':reason', $reason);
 		$stmt->bindParam(':ubtime', $ubtime);
 		$stmt->execute();
+		return;
 	}
 
 	public function isBanned(string $type, string $banned_id): int {
@@ -115,6 +122,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':bssid', $ap);
 		$stmt->execute();
+		return;
 	}
 
 	public function unbanIP(string $console): void {
@@ -122,6 +130,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':ipaddr', $console);
 		$stmt->execute();
+		return;
 	}
 
 	public function getBannedAPs(): array {
@@ -169,6 +178,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':macadr', $console);
 		$stmt->execute();
+		return;
 	}
 
 	public function unregisterConsole(string $console): void {
@@ -176,6 +186,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':macadr', $console);
 		$stmt->execute();
+		return;
 	}
 
 	public function registerConsole(string $console): void {
@@ -183,6 +194,7 @@ class DWCDatabase extends Database {
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':macadr', $console);
 		$stmt->execute();
+		return;
 	}
 
 	public function getPendingConsoles(): array {

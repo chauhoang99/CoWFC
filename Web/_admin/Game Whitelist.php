@@ -13,6 +13,7 @@ final class GameWhitelist extends AdminPage {
 			if(array_key_exists($_POST["action"], $this->identifierActions))
 				$this->site->database->{$this->identifierActions[$_POST["action"]]}($_POST["identifier"]);
 		$this->whitelist = $this->site->database->getWhitelist();
+		return;
 	}
 
 	private function buildWhitelistTable(): void {
@@ -31,6 +32,7 @@ final class GameWhitelist extends AdminPage {
 			echo "<td>";
 		}
 		echo "</table>";
+		return;
 	}
 
 	protected function buildAdminPage(): void {
@@ -46,6 +48,7 @@ final class GameWhitelist extends AdminPage {
 			</div>
 		</div>
 		<?php
+		return;
 	}
 }
 ?>

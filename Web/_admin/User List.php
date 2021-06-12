@@ -26,12 +26,14 @@ final class UserList extends AdminPage {
 		$this->banned_consoles = $this->site->database->getBannedConsoles();
 		$this->banned_profiles = $this->site->database->getBannedProfiles();
 		$this->banned_aps = $this->site->database->getBannedAPs();
+		return;
 	}
 
 	private function calcFC(int $profile_id, string $game_id='RMCJ'): string {
 		$csum = md5(pack('V',$profile_id).strrev($game_id),true);
 		$out = $profile_id | ( ord($csum) & 0xfe ) << 31;
 		return str_pad($out, 12, '0', STR_PAD_LEFT);
+		return;
 	}
 
 	private function buildBlacklistTable(): void {
@@ -135,6 +137,7 @@ final class UserList extends AdminPage {
 			echo "</tr>";
 		}
 		echo "</table>";
+		return;
 	}
 
 	protected function buildAdminPage(): void {
@@ -149,6 +152,7 @@ final class UserList extends AdminPage {
 			</div>
 		</div>
 		<?php
+		return;
 	}
 }
 ?>

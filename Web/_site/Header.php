@@ -24,6 +24,7 @@ class Header {
 		}
 		echo "</ul>";
 		echo "</nav>";
+		return;
 	}
 	
 	public function generateAdminNav(): void {
@@ -69,6 +70,7 @@ class Header {
 		</div>
 		</nav>
 		<?php
+		return;
 	}
 			
 	public function build(): void {
@@ -93,6 +95,7 @@ class Header {
 					<?php $this->generateNav(); ?>
 				</header>
 <?php
+return;
 	}
 }
 ?>

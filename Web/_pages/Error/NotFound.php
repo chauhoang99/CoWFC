@@ -14,6 +14,7 @@ class NotFound extends Page {
 	</div>
 </div>
 <?php
+return;
 	}
 }
 ?>

@@ -22,6 +22,7 @@ final class RegisteredConsoles extends AdminPage {
 			}
 		}
 		$this->reg_consoles = $this->site->database->getRegisteredConsoles();
+		return;
 	}
 
 	private function buildRegisteredTable(): void {
@@ -51,6 +52,7 @@ final class RegisteredConsoles extends AdminPage {
 			}
 		}
 		echo "</table>";
+		return;
 	}
 
 
@@ -75,6 +77,7 @@ final class RegisteredConsoles extends AdminPage {
 				</div>
 			</div>
 			<?php
+			return;
 		}
 	}
 	?>

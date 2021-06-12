@@ -26,6 +26,7 @@ final class Contact extends Page {
 	</div>
 </div>
 <?php
+return;
 	}
 }
 ?>

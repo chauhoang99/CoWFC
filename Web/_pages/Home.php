@@ -6,6 +6,7 @@ final class Home extends Page {
 	protected function buildHeader(): void {
 		$this->meta_title = "The Nintendo WFC alternative!";
 		$this->header->build();
+		return;
 	}
 	
 	protected function buildPage(): void {
@@ -24,6 +25,7 @@ final class Home extends Page {
 	</div>
 </section>
 <?php
+return;
 	}
 }
 ?>

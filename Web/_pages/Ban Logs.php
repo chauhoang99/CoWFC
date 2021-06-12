@@ -10,6 +10,7 @@ final class BanLogs extends Page {
 		foreach($logs as $log) 
 			echo "<tr><td>" . htmlentities($log) . "</td></tr>";
 		echo "</table>";
+		return;
 	}
 	
 	protected function buildPage(): void {
@@ -33,6 +34,7 @@ final class BanLogs extends Page {
 	</div>
 </div>
 <?php
+return;
 	}
 }
 ?>
