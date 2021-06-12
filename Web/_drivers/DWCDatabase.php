@@ -13,14 +13,14 @@ class DWCDatabase extends Database {
 		file_put_contents($this->site->config["admin"]["banlog_path"], $logmsg, FILE_APPEND);
 	}
 
-	public function getWhitelist(): array {
+	public function getWhitelist() {
 		$sql = "SELECT * from allowed_games";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function getSetting(string $setting_name): int {
+	public function getSetting(string $setting_name) {
 		$sql = "SELECT setting_value FROM settings WHERE setting_name = :setting_name";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindValue(':setting_name', $setting_name);
@@ -28,7 +28,7 @@ class DWCDatabase extends Database {
 		return $stmt->fetch()[0];
 	}
 
-	public function getSettings(): array {
+	public function getSettings() {
 		$sql = "SELECT * from settings";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
@@ -107,7 +107,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function isBanned(string $type, string $banned_id): int {
+	public function isBanned(string $type, string $banned_id) {
 		$sql = "SELECT COUNT(*) FROM banned WHERE type = :type AND banned_id = :banned_id";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':type', $type);
@@ -133,28 +133,28 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function getBannedAPs(): array {
+	public function getBannedAPs() {
 		$sql = "SELECT banned_id, timestamp, reason, ubtime FROM banned WHERE type = 'ap' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function getIPBans(): array {
+	public function getIPBans() {
 		$sql = "SELECT banned_id, timestamp, reason, ubtime FROM banned WHERE type = 'ip' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function getRegisteredConsoles(): array {
+	public function getRegisteredConsoles() {
 		$sql = "SELECT * FROM consoles WHERE enabled = '1'";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function getAbusedConsoles(): array {
+	public function getAbusedConsoles() {
 		$sql = "SELECT (macadr) FROM consoles WHERE abuse = '1'";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
@@ -197,28 +197,28 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function getPendingConsoles(): array {
+	public function getPendingConsoles() {
 		$sql = "SELECT (macadr) FROM consoles where enabled = '0'";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function getBannedConsoles(): array {
+	public function getBannedConsoles() {
 		$sql = "SELECT banned_id, timestamp, reason, ubtime FROM banned WHERE type = 'console' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function getBannedProfiles(): array {
+	public function getBannedProfiles() {
 		$sql = "SELECT banned_id, timestamp, reason, ubtime FROM banned WHERE type = 'profile' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function getUsers(): array {
+	public function getUsers() {
 		$sql = "SELECT users.profileid,enabled,data,users.gameid,console,users.userid
 				FROM nas_logins
 				INNER JOIN users
@@ -234,7 +234,7 @@ class DWCDatabase extends Database {
 		return $stmt->fetchAll();
 	}
 
-	public function getBannedList(): array {
+	public function getBannedList() {
 		$sql = "SELECT banned_id, timestamp, reason, ubtime FROM banned WHERE type = 'ip' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
@@ -245,49 +245,49 @@ class DWCDatabase extends Database {
 		return $banned;
 	}
 
-	public function getNumBannedMisc(): int {
+	public function getNumBannedMisc() {
 		$sql = "SELECT COUNT(*) FROM banned WHERE type = 'ip' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetch()[0];
 	}
 
-	public function getNumBannedProfiles(): int {
+	public function getNumBannedProfiles() {
 		$sql = "SELECT COUNT(*) FROM banned WHERE type = 'profile' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetch()[0];
 	}
 
-	public function getNumBannedConsoles(): int {
+	public function getNumBannedConsoles() {
 		$sql = "SELECT COUNT(*) FROM banned WHERE type = 'console' AND ubtime > ".time();
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetch()[0];
 	}
 
-	public function getActiveGames(): int {
+	public function getActiveGames() {
 		$sql = "SELECT COUNT(*) FROM allowed_games";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetch()[0];
 	}
 
-	public function getConsoles(): int {
+	public function getConsoles() {
 		$sql = "SELECT COUNT(*) FROM consoles WHERE enabled = '1'";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetch()[0];
 	}
 
-	public function getProfiles(): int {
+	public function getProfiles() {
 		$sql = "SELECT COUNT(*) FROM users";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetch()[0];
 	}
 
-	public function getNumOfAllBans(): int {
+	public function getNumOfAllBans() {
 		$sql = "SELECT COUNT(*) FROM banned";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->execute();
