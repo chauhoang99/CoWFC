@@ -3,7 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . '/_site/Page.php');
 
 class NotFound extends Page {
 	
-	public function buildPage(): void {
+	public function buildPage() {
 ?>
 <div id="main" class="wrapper style1">
 	<div class="container">

@@ -8,7 +8,7 @@ final class UserList extends AdminPage {
 	private $banned_profiles = array();
 	private $banned_aps = array();
 
-	private function handleReq(): void {
+	private function handleReq() {
 		if(isset($_POST['action'], $_POST['identifier'])){
 			switch($_POST['action']){
 				case 'ban': $target_aliases = array($_POST['sn'], $_POST['fc'], $_POST['pid']);$this->site->database->ban("IP", $target_aliases, $_POST['identifier'], $_POST['reason'], 60 * (int)$_POST['time']);break;
@@ -36,7 +36,7 @@ final class UserList extends AdminPage {
 		return;
 	}
 
-	private function buildBlacklistTable(): void {
+	private function buildBlacklistTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>Pseudo</th><th>Ban IP</th><th>Ban MAC </br>(ID Connection Console)</th><th>Ban Profil</th><th>Action</th><th>gameid</th><th>E</th><th>pid</th><th>gsbrcd</th><th>userid</th><th>IP Address</th><th>Console MAC</th><th>Friend Code</th><th>Wii Friend Code</th><th>Console Serial Number (Wii ONLY)</th>";
@@ -140,7 +140,7 @@ final class UserList extends AdminPage {
 		return;
 	}
 
-	protected function buildAdminPage(): void {
+	protected function buildAdminPage() {
 		$this->handleReq();
 		?>
 		<div class="content-wrapper py-3">

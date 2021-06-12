@@ -3,7 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . '/_site/Page.php');
 
 final class Contact extends Page {
 	
-	protected function buildPage(): void {
+	protected function buildPage() {
 ?>
 <div id="main" class="wrapper style1">
 	<div class="container">

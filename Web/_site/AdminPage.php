@@ -24,7 +24,7 @@ abstract class AdminPage extends Page {
 		parent::__construct($site);
 	}
 	
-	private function initMySQL(): void {
+	private function initMySQL() {
 		$this->udatabase = new Database($this->site);
 		$config = $this->site->config['admin'];
 		$this->udatabase->connect($config['db_host'],$config['db_name'],$config['db_user'],$config['db_pass']);
@@ -39,12 +39,12 @@ abstract class AdminPage extends Page {
     return;
 	}
 	
-	protected function buildPage(): void {
+	protected function buildPage() {
 		$this->buildAdminPage();
     return;
 	}
 	
-	protected function buildHeader(): void {
+	protected function buildHeader() {
 ?>
 <html lang="en">
 
@@ -80,7 +80,7 @@ abstract class AdminPage extends Page {
 return;
 	}
 	
-	protected function buildFooter(): void {
+	protected function buildFooter() {
 ?>
 <!-- Scroll to Top Button -->
     <a class="scroll-to-top rounded" href="#page-top">

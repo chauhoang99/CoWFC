@@ -38,7 +38,7 @@ class PageController {
 		}
 	}
 	
-	private function loadConfiguration($config): void {
+	private function loadConfiguration($config) {
 		try {
 			$this->config = parse_ini_file($config, true);
 		} catch (Exception $e){
@@ -47,7 +47,7 @@ class PageController {
 		return;
 	}
 	
-	private function loadDatabase(): void {
+	private function loadDatabase() {
 		$this->database = new DWCDatabase($this);
 		$this->database->connect("sqlite:".$this->config['pages']['dwc_db_path']);
 		return;

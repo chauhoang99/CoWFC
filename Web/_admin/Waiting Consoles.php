@@ -10,7 +10,7 @@ final class WaitingConsoles extends AdminPage {
 		"unban" => "unbanConsole"
 	);
 
-	private function handleReq(): void {
+	private function handleReq() {
 		if(isset($_POST["action"], $_POST["identifier"])){
 			switch($_POST["action"]){
 				case "ban":
@@ -27,7 +27,7 @@ final class WaitingConsoles extends AdminPage {
 		return;
 	}
 
-	private function buildPendRegisteredTable(): void {
+	private function buildPendRegisteredTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;" id="dataTable">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>MAC Address</th><th>Authorize</th><th>Disallow (Ban)</th>";
@@ -51,7 +51,7 @@ final class WaitingConsoles extends AdminPage {
 
 
 
-	private function generateMessage(): void {
+	private function generateMessage() {
 		$value = $this->site->database->getSetting("console_manualactivation");
 		echo "<br>";
 		if($value == 0){
@@ -64,7 +64,7 @@ final class WaitingConsoles extends AdminPage {
 		return;
 	}
 
-	protected function buildAdminPage(): void {
+	protected function buildAdminPage() {
 		$this->handleReq();
 		?>
 		<div class="content-wrapper py-3">

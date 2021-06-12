@@ -3,7 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . '/_site/AdminPage.php');
 
 final class Dashboard extends AdminPage {
 
-	protected function buildAdminPage(): void {
+	protected function buildAdminPage() {
 		?>
 		<div class="content-wrapper py-3">
 			<div class="container-fluid">

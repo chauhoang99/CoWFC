@@ -3,7 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . '/_drivers/Database.php');
 
 class DWCDatabase extends Database {
 
-	public function ban(string $type, array $target_aliases, string $identifier, string $reason="none", int $time=0): void {
+	public function ban(string $type, array $target_aliases, string $identifier, string $reason="none", int $time=0) {
 		$this->{"ban{$type}"}($identifier, $reason, $time);
 		$identifier = !$target_aliases ? $identifier : implode(" / ", $target_aliases);
 		$format = "[%s] %s - %s banned %s %s (Reason: %s)\n";
@@ -35,7 +35,7 @@ class DWCDatabase extends Database {
 		return $stmt->fetchAll();
 	}
 
-	public function setSetting(string $setting_name, string $setting_value): void {
+	public function setSetting(string $setting_name, string $setting_value) {
 		$sql = "UPDATE settings SET setting_value= :setting_value WHERE setting_name = :setting_name";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindValue(':setting_value', $setting_value);
@@ -44,7 +44,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function addToWhitelist(string $game): void {
+	public function addToWhitelist(string $game) {
 		$sql = "INSERT INTO allowed_games (gamecd) VALUES (:gamecd)";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindValue(':gamecd', strtoupper($game));
@@ -52,7 +52,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function removeFromWhitelist(string $game): void {
+	public function removeFromWhitelist(string $game) {
 		$sql = "DELETE FROM allowed_games WHERE gamecd = :gamecd";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':gamecd', $game);
@@ -60,7 +60,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	private function banIP(string $ip, string $reason='none', int $time=0): void {
+	private function banIP(string $ip, string $reason='none', int $time=0) {
 		$ubtime = time() + $time;
 		if($time == 0) $ubtime = 99999999999;
 		$sql = "INSERT INTO banned (banned_id, timestamp, reason, ubtime, type) VALUES (:ipaddr, :timestamp, :reason, :ubtime, 'ip')";
@@ -73,7 +73,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	private function banProfile(string $profile, string $reason='none', int $time=0): void {
+	private function banProfile(string $profile, string $reason='none', int $time=0) {
 		$ubtime = time() + $time;
 		if($time == 0) $ubtime = 99999999999;
 		$sql = "INSERT INTO banned (banned_id, timestamp, reason, ubtime, type) VALUES (:gsbrcd, :timestamp, :reason, :ubtime, 'profile')";
@@ -86,7 +86,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function unbanProfile(string $gsbrcd): void {
+	public function unbanProfile(string $gsbrcd) {
 		$sql = "DELETE FROM banned WHERE banned_id = :gsbrcd";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':gsbrcd', $gsbrcd);
@@ -94,7 +94,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	private function banAP(string $ap, string $reason='none', int $time=0): void {
+	private function banAP(string $ap, string $reason='none', int $time=0) {
 		$ubtime = time() + $time;
 		if($time == 0) $ubtime = 99999999999;
 		$sql = "INSERT INTO banned (banned_id, timestamp, reason, ubtime, type) VALUES (:bssid, :timestamp, :reason, :ubtime, 'ap')";
@@ -117,7 +117,7 @@ class DWCDatabase extends Database {
 	}
 
 
-	public function unbanAP(string $ap): void {
+	public function unbanAP(string $ap) {
 		$sql = "DELETE FROM banned WHERE banned_id = :bssid";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':bssid', $ap);
@@ -125,7 +125,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function unbanIP(string $console): void {
+	public function unbanIP(string $console) {
 		$sql = "DELETE FROM banned WHERE type = 'ip' AND banned_id = :ipaddr";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':ipaddr', $console);
@@ -161,7 +161,7 @@ class DWCDatabase extends Database {
 		return $stmt->fetchAll();
 	}
 
-	private function banConsole(string $console, string $reason='none', int $time=0): void {
+	private function banConsole(string $console, string $reason='none', int $time=0) {
 		$ubtime = time() + $time;
 		if($time == 0) $ubtime = 99999999999;
 		$sql = "INSERT INTO banned (banned_id, timestamp, reason, ubtime, type) VALUES (:macadr, :timestamp, :reason, :ubtime, 'console')";
@@ -173,7 +173,7 @@ class DWCDatabase extends Database {
 		$stmt->execute();
 	}
 
-	public function unbanConsole(string $console): void {
+	public function unbanConsole(string $console) {
 		$sql = "DELETE FROM banned WHERE type = 'console' AND banned_id = :macadr";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':macadr', $console);
@@ -181,7 +181,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function unregisterConsole(string $console): void {
+	public function unregisterConsole(string $console) {
 		$sql = "DELETE FROM consoles WHERE macadr = :macadr";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':macadr', $console);
@@ -189,7 +189,7 @@ class DWCDatabase extends Database {
 		return;
 	}
 
-	public function registerConsole(string $console): void {
+	public function registerConsole(string $console) {
 		$sql = "UPDATE consoles SET enabled='1' WHERE macadr = :macadr";
 		$stmt = $this->getConn()->prepare($sql);
 		$stmt->bindParam(':macadr', $console);

@@ -10,7 +10,7 @@ final class Bans extends AdminPage {
 		"unbanConsole" => "unbanConsole"
 	);
 
-	private function handleReq(): void {
+	private function handleReq() {
 		if(isset($_POST["action"], $_POST["identifier"])){
 			switch($_POST["action"]){
 				case "ban":
@@ -34,7 +34,7 @@ final class Bans extends AdminPage {
 		return;
 	}
 
-	private function buildIPTable(): void {
+	private function buildIPTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>Adresse IP</th><th>Unban IP</th><th>Appliqué le </th><th>Durée</th><th>Raison</th>";
@@ -65,7 +65,7 @@ final class Bans extends AdminPage {
 		return;
 	}
 
-	private function buildBannedTable(): void {
+	private function buildBannedTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>MAC Address</th><th>Unban MAC</th><th>Timestamp</th><th>Until</th><th>Reason</th>";
@@ -95,7 +95,7 @@ final class Bans extends AdminPage {
 		return;
 	}
 
-	private function buildAbusedTable(): void {
+	private function buildAbusedTable() {
 		echo '<table class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width: 100%;">';
 		echo '<thead><tr>';
 		echo "<th class='sorting-asc'>MAC Address</th>";
@@ -111,7 +111,7 @@ final class Bans extends AdminPage {
 		return;
 	}
 
-	protected function buildAdminPage(): void {
+	protected function buildAdminPage() {
 		$this->handleReq();
 		?>
 		<div class="content-wrapper py-3">
